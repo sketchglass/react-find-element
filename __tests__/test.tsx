@@ -30,3 +30,17 @@ test("FindElement finds descendant DOM element nested in other components", () =
   const component = ReactDOM.render(view, root) as FindElementComponent
   expect(component.element.id).toBe("elem")
 })
+
+test("FindElement finds descendant DOM element nested in other FindElement components", () => {
+  const root = document.createElement("div")
+  let outer: Element|undefined
+  let inner: Element|undefined
+  const view = <FindElementComponent ref={c => outer = c.element}>
+    <FindElement ref={c => inner = c.element}>
+      <div id="elem" />
+    </FindElement>
+  </FindElementComponent>
+  const component = ReactDOM.render(view, root) as FindElementComponent
+  expect(outer.id).toBe("elem")
+  expect(inner.id).toBe("elem")
+})
