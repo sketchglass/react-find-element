@@ -1,0 +1,19 @@
+{
+  "name": "react-find-element",
+  "version": "0.1.0",
+  "description": "Base class for React components that finds and taps descendant DOM element",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sketchglass/react-find-element.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sketchglass/react-find-element/issues"
+  },
+  "homepage": "https://github.com/sketchglass/react-find-element#readme"
+}
