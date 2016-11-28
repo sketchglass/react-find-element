@@ -17,8 +17,19 @@ class FindElement<TProps, TState> extends React.Component<TProps, TState> {
           }
         })
       } else {
+        const {children} = elem.props
+        const childCount = React.Children.count(children)
+        if (childCount == 0) {
+          return elem
+        }
+        if (childCount == 1) {
+          const child = React.Children.toArray(children)[0]
+          return React.cloneElement(elem, {
+            children: this.mapElement(child)
+          })
+        }
         return React.cloneElement(elem, {
-          children: React.Children.map(elem.props.children, this.mapElement.bind(this))
+          children: React.Children.map(children, this.mapElement.bind(this))
         })
       }
     }

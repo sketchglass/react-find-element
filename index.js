@@ -25,8 +25,19 @@ var FindElement = (function (_super) {
                 });
             }
             else {
+                var children = elem.props.children;
+                var childCount = React.Children.count(children);
+                if (childCount == 0) {
+                    return elem;
+                }
+                if (childCount == 1) {
+                    var child = React.Children.toArray(children)[0];
+                    return React.cloneElement(elem, {
+                        children: this.mapElement(child)
+                    });
+                }
                 return React.cloneElement(elem, {
-                    children: React.Children.map(elem.props.children, this.mapElement.bind(this))
+                    children: React.Children.map(children, this.mapElement.bind(this))
                 });
             }
         }
