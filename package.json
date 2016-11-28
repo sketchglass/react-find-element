@@ -4,7 +4,9 @@
   "description": "Base class for React components that finds and taps descendant DOM element",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,19 @@
   "bugs": {
     "url": "https://github.com/sketchglass/react-find-element/issues"
   },
-  "homepage": "https://github.com/sketchglass/react-find-element#readme"
+  "homepage": "https://github.com/sketchglass/react-find-element#readme",
+  "devDependencies": {
+    "@types/jest": "^16.0.0",
+    "@types/react": "^0.14.50",
+    "@types/react-dom": "^0.14.19",
+    "jest": "^17.0.3",
+    "jest-cli": "^17.0.3",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "typescript": "^2.0.10"
+  },
+  "jest": {
+    "verbose": true,
+    "watchman": false
+  }
 }
